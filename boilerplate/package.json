@@ -1,0 +1,13 @@
+{
+  "name": "boilerplate",
+  "version": "0.1.0",
+  "scripts": {
+    "setup": "yarn",
+    "reset": "rm -rf node_modules yarn.lock && yarn run setup",
+    "webpack": "node webpack.config.js"
+  },
+  "browserslist": ["> 1%", "last 2 versions"],
+  "devDependencies": {
+    "grav-webpacker": "latest"
+  }
+}

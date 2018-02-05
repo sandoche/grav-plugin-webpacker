@@ -1,0 +1,17 @@
+enabled: true
+mode: production
+https: false
+tunnel: false
+open_website: true
+open_url: local
+build_error_display:
+  overlay: true
+  console: true
+open_browsersyncui: true
+open_bundleanalyzer: true
+os_notify: true
+os_notify_sound: true
+browsersync_notify: true
+manifest: true
+vendors: true
+commons: true
