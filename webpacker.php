@@ -33,20 +33,23 @@ class WebpackerPlugin extends Plugin
    */
   public function onPluginsInitialized()
   {
-    // Don't proceed if we are in the admin plugin
-    if ($this->isAdmin()) return;
+    // Load WebpackAssets class
+    require_once(__DIR__ . '/classes/WebpackAssets.php');
 
-    // Check if plugin is enabled
-    if ($this->config['plugins.webpacker.enabled']) {
+    // Enable the main event we are interested in
+    $this->enable([
+      'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+    ]);
 
-      // Load classes
-      require_once(__DIR__ . '/classes/WebpackAssets.php');
+    // Check if plugin is enabled and if we are admin
+    if (!$this->isAdmin() && $this->config['plugins.webpacker.enabled']) {
+
+      // Load WebpackTwigExtension class
       require_once(__DIR__ . '/classes/WebpackTwigExtension.php');
 
       // Enable the main event we are interested in
       $this->enable([
-        'onTwigExtensions' => ['onTwigExtensions', 0],
-        'onTwigSiteVariables' => ['onTwigSiteVariables', 0]
+        'onTwigExtensions' => ['onTwigExtensions', 0]
       ]);
     }
   }
@@ -66,18 +69,43 @@ class WebpackerPlugin extends Plugin
   {
     $webpackerConfig = $this->config['plugins.webpacker'];
 
-    $webpackAssets = new WebpackAssets;
+    // If we are not in admin
+    if (!$this->isAdmin()) {
 
-    if ($webpackerConfig['manifest']) {
-      $webpackAssets->add('manifest.js', 10, 'inline', null, null);
-    }
+      $webpackAssets = new WebpackAssets;
 
-    if ($webpackerConfig['vendors']) {
-      $webpackAssets->add('vendors.js', 10, false, null, null);
-    }
+      // Add menifest asset if enabled
+      if ($webpackerConfig['manifest']) {
+        $webpackAssets->add('manifest.js', 10, 'inline', null, null);
+      }
 
-    if ($webpackerConfig['commons']) {
-      $webpackAssets->add('commons.js', 10, false, null, null);
+      // Add vendors asset if enabled
+      if ($webpackerConfig['vendors']) {
+        $webpackAssets->add('vendors.js', 10, false, null, null);
+      }
+
+      // Add commons asset if enabled
+      if ($webpackerConfig['commons']) {
+        $webpackAssets->add('commons.js', 10, false, null, null);
+      }
+
+    // If we are in admin and WebpackerPlugin is in development mode
+    } elseif ($webpackerConfig['mode'] === 'development') {
+
+      $twig = $this->grav['twig'];
+
+      // Get protocol from WebpackerPlugin config
+      $protocol = $webpackerConfig['https'] ? 'https' : 'http';
+
+      // Define the new frontend base url for development mode
+      $new_base_url_relative_frontend = "$protocol://localhost:3000";
+
+      $admin_class_variables = [
+        'base_url_relative_frontend' => $new_base_url_relative_frontend,
+      ];
+
+      // Merge Twig variable to overide base_url_relative_frontend with new one
+      $twig->twig_vars = array_merge($twig->twig_vars, $admin_class_variables);
     }
   }
 }
