@@ -8,10 +8,11 @@ PLUGIN_WEBPACKER:
       PROD: Production
   SERVER:
     TITLE: Development server
-    PROXY: Proxy
-    PROXY_HELP: The php server domain where Grav is running
     BROWSERSYNC_HTTPS: HTTPS
     BROWSERSYNC_HTTPS_HELP: Toggle HTTPS on server with HTTP2
+    PROXY: Proxy
+    PROXY_PLACEHOLDER: 'e.g. http(s)://domain_name.dev'
+    PROXY_HELP: The php server domain where Grav is running
     TUNNEL: Tunnel
     TUNNEL_HELP: Create a tunnel server trough a random public url
   WEBBROWSER:

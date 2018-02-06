@@ -1,5 +1,5 @@
 name: Webpacker
-version: 1.0.0
+version: 1.0.1
 description: Offer a simple way to include the power of webpack inside Grav
 icon: refresh
 keywords: 'grav, plugin, webpack, assets, workflow'
@@ -46,6 +46,7 @@ form:
           size: medium
           autofocus: true
           label: PLUGIN_WEBPACKER.SERVER.PROXY
+          placeholder: PLUGIN_WEBPACKER.SERVER.PROXY_PLACEHOLDER
           help: PLUGIN_WEBPACKER.SERVER.PROXY_HELP
           validate:
             required: true
