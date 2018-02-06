@@ -57,7 +57,7 @@ class WebpackAssets
     $fileName = $pathInfo['filename'];
 
     // Error title
-    $errorTitle = 'Webpack Plugin: ';
+    $errorTitle = 'Webpacker Plugin: ';
 
     // Webpacker Json file
     $webpackerJson = 'webpacker.json';

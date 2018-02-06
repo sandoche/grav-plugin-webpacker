@@ -6,8 +6,13 @@ use Grav\Plugin\Webpacker\WebpackerTwigExtension;
 use Grav\Plugin\Webpacker\WebpackAssets;
 
 /**
+ * [Webpacker plugin]
+ *
+ * [Offer a simple way to include the power of webpack inside Grav]
+ *
  * Class WebpackerPlugin
  * @package Grav\Plugin
+ * @license MIT License by jimblue
  */
 class WebpackerPlugin extends Plugin
 {
