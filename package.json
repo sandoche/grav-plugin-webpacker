@@ -1,7 +1,7 @@
 {
   "name": "grav-plugin-webpacker",
   "description": "Offer a simple way to include the power of webpack inside Grav",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jimblue/grav-plugin-webpacker.git"
@@ -48,7 +48,7 @@
     "eslint-loader": "1.9.0",
     "eslint-plugin-compat": "2.2.0",
     "eslint-plugin-import": "2.8.0",
-    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-node": "6.0.0",
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-standard": "3.0.1",
     "extract-text-webpack-plugin": "3.0.2",
@@ -56,7 +56,7 @@
     "friendly-errors-webpack-plugin": "1.6.1",
     "image-webpack-loader": "4.0.0",
     "js-yaml": "3.10.0",
-    "lodash": "4.17.4",
+    "lodash": "4.17.5",
     "node-notifier": "5.2.1",
     "node-sass": "4.7.2",
     "npm-check-updates": "2.14.0",
