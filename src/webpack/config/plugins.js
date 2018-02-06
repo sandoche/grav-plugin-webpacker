@@ -76,10 +76,10 @@ module.exports = () => {
     )
   }
 
-  // Styletint
+  // Provide Styletint support
   plugins.push(new StyleLintPlugin())
 
-  // Extract Text
+  // Plugin to extract S|A|CSS code from JS
   plugins.push(
     new ExtractTextPlugin({
       filename: 'css/[name].[contenthash].css',
@@ -88,7 +88,7 @@ module.exports = () => {
     })
   )
 
-  // OS Notifier
+  // Provide OS Notifier
   if (GravConfig.osNotify) {
     plugins.push(
       new WebpackNotifierPlugin({
@@ -104,7 +104,7 @@ module.exports = () => {
     )
   }
 
-  // Bundle Analyzer
+  // Create a server with a Bundle Analyzer
   if (GravConfig.openBundleAnalyzer) {
     plugins.push(
       new BundleAnalyzerPlugin({
@@ -133,6 +133,7 @@ module.exports = () => {
 
   if (GravConfig.prod) {
     plugins.push(
+      // Progress bar plugin for console
       new ProgressBarPlugin({
         format: `  ${chalk.green.bold('BUILD')} ${chalk.yellow('█:bar█')} ${chalk.green.bold(':percent')} ${chalk.bold('(:elapsed seconds)')}`,
         complete: '█',
@@ -140,15 +141,19 @@ module.exports = () => {
         clear: true
       }),
 
+      // Cleanup dist folder before saving new build
       new CleanWebpackPlugin(['*'], {
         root: GravConfig.outputPath,
         beforeEmit: true,
         verbose: false
       }),
 
+      // Will cause hashes to be based on the relative path of the module, generating a four character string as the module id
       new webpack.HashedModuleIdsPlugin(),
 
+      // Minify JS
       new UglifyJsPlugin({
+        cache: true,
         parallel: true,
         sourceMap: true,
         uglifyOptions: {
@@ -163,11 +168,13 @@ module.exports = () => {
         }
       }),
 
+      // Ganerate webpacker.json file that contain path reference to all builded assets
       new AssetsPlugin({
         filename: 'webpacker.json',
         path: GravConfig.outputPath
       }),
 
+      // Stop build if on error
       new webpack.NoEmitOnErrorsPlugin()
     )
   }
