@@ -1,5 +1,11 @@
+# v1.0.3
+##  07/02/2018
+
+1. [](#fix)
+    * fix an issue with vendors.js and common.js in PHP part of the plugin
+
 # v1.0.2
-##  02/02/2018
+##  06/02/2018
 
 1. [](#improved)
     * better build performance and better commented code
