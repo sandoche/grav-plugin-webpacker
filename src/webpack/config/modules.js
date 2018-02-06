@@ -11,9 +11,7 @@ const cssnano = require('cssnano')
 module.exports = () => {
   const modules = {
     rules: [
-      // Linters
-      // ––––––––––––––––––––––
-
+      // JAVASCRIPT linter (using ESLINT)
       {
         test: /\.js$/,
         enforce: 'pre',
@@ -28,9 +26,7 @@ module.exports = () => {
         ]
       },
 
-      // Loaders
-      // ––––––––––––––––––––––
-
+      // JAVASCRIPT loader (using BABEL)
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -43,6 +39,7 @@ module.exports = () => {
           }
         ]
       },
+      // STYLE loader (using SASS and POSTCSS)
       {
         test: /\.(scss|sass|css)$/,
         use: ExtractTextPlugin.extract({
@@ -87,6 +84,7 @@ module.exports = () => {
           ]
         })
       },
+      // IMAGE loader
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: [
@@ -105,6 +103,7 @@ module.exports = () => {
           }
         ]
       },
+      // FONT loader
       {
         test: /\.(woff|woff2|eot|ttf)$/,
         use: [

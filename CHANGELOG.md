@@ -1,3 +1,9 @@
+# v1.0.2
+##  02/02/2018
+
+1. [](#improved)
+    * better build performance and better commented code
+
 # v1.0.1
 ##  06/02/2018
 
