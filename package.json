@@ -1,7 +1,7 @@
 {
   "name": "grav-plugin-webpacker",
   "description": "Offer a simple way to include the power of webpack inside Grav",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jimblue/grav-plugin-webpacker.git"
