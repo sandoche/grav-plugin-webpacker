@@ -68,6 +68,7 @@ class WebpackAssets
 
       // Check if file extension is CSS or JS
       if ($fileExt == 'css' || $fileExt == 'js') {
+
         // Check if mode is development
         if ($mode == 'development') {
           // Asset path
@@ -87,10 +88,16 @@ class WebpackAssets
         } elseif ($mode == 'production') {
           $webpackAssets = $locator->findResource('theme://assets/' . $webpackerJson, true);
 
-          // Check if webpack assets json file exist
+          // Check if wepack-assets.json exist
           if (file_exists($webpackAssets)) {
             // Array of assets paths from wepack-assets.json
             $assetsArray = json_decode(file_get_contents($webpackAssets), true);
+
+            // Check if file is vendors or commons
+            if ($fileName == 'vendors' || $fileName == 'commons') {
+              // Stop here if file is not in wepack-assets.json index
+              if (!array_key_exists($fileName, $assetsArray)) return;
+            }
 
             // Asset path
             $assetRelPath = $assetsArray[$fileName];
@@ -98,15 +105,14 @@ class WebpackAssets
 
             // Check if the file exist
             if (file_exists($assetAbsPath)) {
+
               // Check if file extension is CSS
               if ($fileExt == 'css') {
-
                 // Add CSS
                 $assets->addCss($assetRelPath['css'], $priority, $pipeline, $group, $loading);
 
               // Check if file extension is JS
               } elseif ($fileExt == 'js') {
-
                 // Add JS
                 $assets->addJs($assetRelPath['js'], $priority, $pipeline, $loading, $group);
               }
@@ -116,7 +122,7 @@ class WebpackAssets
               throw new \RuntimeException($errorTitle . $asset . ' ' . $language->translate('PLUGIN_WEBPACKER.ERRORS.MISSING_FILE'));
             }
 
-          // Trow missing webpacker.json error
+          // Trow missing wepack-assets.json error
           } else {
             throw new \RuntimeException($errorTitle . $webpackerJson . ' ' . $language->translate('PLUGIN_WEBPACKER.ERRORS.MISSING_JSON'));
           }
