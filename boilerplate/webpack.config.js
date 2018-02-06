@@ -1,5 +1,5 @@
 const path = require('path')
-const webpacker = require('grav-webpacker')
+const webpacker = require('grav-plugin-webpacker')
 
 // Your entry files (put them all in user/active_theme/src)
 const entryFiles = ['scss/entry/app.scss', 'js/entry/app.js']
