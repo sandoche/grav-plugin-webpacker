@@ -46,6 +46,7 @@ form:
           size: medium
           autofocus: true
           label: PLUGIN_WEBPACKER.SERVER.PROXY
+          placeholder: PLUGIN_WEBPACKER.SERVER.PROXY_PLACEHOLDER
           help: PLUGIN_WEBPACKER.SERVER.PROXY_HELP
           validate:
             required: true
