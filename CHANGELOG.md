@@ -1,3 +1,13 @@
+# v1.0.4
+##  10/02/2018
+
+1. [](#fix)
+    * fix wrong image for os notification
+
+1. [](#improved)
+    * update npm packages
+    * update boilerplate, language and licence
+
 # v1.0.3
 ##  07/02/2018
 

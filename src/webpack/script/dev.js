@@ -91,8 +91,8 @@ const browserSyncServerOptions = {
         // Web browser notification message
         notifyMessage(eventName, fileName)
 
-        // OS notification message (SUSCCES)
-        OSnotifyMessage('warning', eventName, fileName)
+        // OS notification message (COMPILE)
+        OSnotifyMessage('compile', eventName, fileName)
 
         // Reload BrowserSync server
         browserSyncServer.reload()
