@@ -1,3 +1,9 @@
+# v1.0.5
+##  13/02/2018
+
+1. [](#improved)
+    * add CLI option to override webpacker mode
+
 # v1.0.4
 ##  10/02/2018
 

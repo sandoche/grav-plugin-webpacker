@@ -2,6 +2,7 @@ const zipObject = require('lodash/zipObject')
 const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
+const cli = require('yargs').argv
 
 // HELPERS
 // ––––––––––––––––––––––
@@ -69,8 +70,9 @@ class GravConfig {
     })()
 
     // Mode
-    const _dev = plugin.mode === 'development'
-    const _prod = plugin.mode === 'production'
+    const webpackerMode = cli.mode ? cli.mode : plugin.mode
+    const _dev = webpackerMode === 'development'
+    const _prod = webpackerMode === 'production'
 
     // Development server
     const _proxy = plugin.proxy
