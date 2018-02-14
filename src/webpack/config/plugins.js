@@ -94,7 +94,6 @@ module.exports = () => {
       new WebpackNotifierPlugin({
         title: GravConfig.appName,
         sound: GravConfig.osNotifySound,
-        suppressCompileStart: false,
         logo: path.resolve(WebpackerPath, 'img/logo.png'),
         successIcon: path.resolve(WebpackerPath, 'img/success.png'),
         warningIcon: path.resolve(WebpackerPath, 'img/warning.png'),
