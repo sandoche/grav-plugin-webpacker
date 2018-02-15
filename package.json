@@ -80,6 +80,7 @@
     "webpack-bundle-analyzer": "2.10.0",
     "webpack-dev-middleware": "2.0.5",
     "webpack-hot-middleware": "2.21.0",
+    "webpack-jarvis": "^0.3.0",
     "yargs": "^11.0.0"
   }
 }

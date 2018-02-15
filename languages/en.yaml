@@ -37,6 +37,8 @@ PLUGIN_WEBPACKER:
     OPEN_BROWSERSYNC_UI_HELP: Open BrowserSync UI on default web browser after initialization
     OPEN_BUNDLE_ANALYZER: BundleAnalyzer
     OPEN_BUNDLE_ANALYZER_HELP: Open BundleAnalyzer on default web browser after initialization
+    OPEN_JARVIS: Jarvis
+    OPEN_JARVIS_HELP: Open Jarvis Webpack dashboard on default web browser after initialization
   NOTIFICATIONS:
     TITLE: Notifications
     OS_NOTIFY: OS Notification

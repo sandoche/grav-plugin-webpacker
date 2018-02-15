@@ -120,6 +120,7 @@ class GravConfig {
     // Tools
     const _openBrowserSyncUI = plugin.open_browsersyncui
     const _openBundleAnalyzer = plugin.open_bundleanalyzer
+    const _openJarvis = plugin.open_jarvis
 
     // Notifications
     const _osNotify = plugin.os_notify
@@ -144,6 +145,7 @@ class GravConfig {
       serverPort: 3000,
       browserSyncPort: 3001,
       bundleAnalyzerPort: 3002,
+      jarvisPort: 3003,
       https: _https,
       httpModule: _httpModule,
       tunnel: _tunnel,
@@ -160,6 +162,7 @@ class GravConfig {
       browserSyncNotify: _browserSyncNotify,
       openBrowserSyncUI: _openBrowserSyncUI,
       openBundleAnalyzer: _openBundleAnalyzer,
+      openJarvis: _openJarvis,
       manifest: _manifest,
       vendors: _vendors,
       commons: _commons,
