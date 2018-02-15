@@ -12,6 +12,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const AssetsPlugin = require('assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const Jarvis = require('webpack-jarvis')
 const path = require('path')
 
 // PLUGINS CONFIG
@@ -94,7 +95,6 @@ module.exports = () => {
       new WebpackNotifierPlugin({
         title: GravConfig.appName,
         sound: GravConfig.osNotifySound,
-        suppressCompileStart: false,
         logo: path.resolve(WebpackerPath, 'img/logo.png'),
         successIcon: path.resolve(WebpackerPath, 'img/success.png'),
         warningIcon: path.resolve(WebpackerPath, 'img/warning.png'),
@@ -104,7 +104,16 @@ module.exports = () => {
     )
   }
 
-  // Create a server with a Bundle Analyzer
+  // Create a server with Jarvis Webpack Dashboard
+  if (GravConfig.openJarvis) {
+    plugins.push(
+      new Jarvis({
+        port: GravConfig.jarvisPort
+      })
+    )
+  }
+
+  // Create a server with Bundle Analyzer
   if (GravConfig.openBundleAnalyzer) {
     plugins.push(
       new BundleAnalyzerPlugin({

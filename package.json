@@ -1,7 +1,7 @@
 {
   "name": "grav-plugin-webpacker",
   "description": "Offer a simple way to include the power of webpack inside Grav",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jimblue/grav-plugin-webpacker.git"
@@ -73,13 +73,14 @@
     "stylelint-config-standard": "18.0.0",
     "stylelint-order": "0.8.0",
     "stylelint-scss": "2.3.0",
-    "stylelint-webpack-plugin": "0.10.1",
+    "stylelint-webpack-plugin": "0.10.2",
     "uglifyjs-webpack-plugin": "1.1.8",
     "webpack": "3.11",
     "webpack-build-notifier": "0.1.22",
     "webpack-bundle-analyzer": "2.10.0",
     "webpack-dev-middleware": "2.0.5",
     "webpack-hot-middleware": "2.21.0",
+    "webpack-jarvis": "^0.3.0",
     "yargs": "^11.0.0"
   }
 }

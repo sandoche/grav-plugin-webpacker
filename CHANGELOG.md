@@ -1,3 +1,12 @@
+# v1.0.6
+##  15/02/2018
+
+1. [](#new)
+    * add Jarvis Webpack dashboard
+
+1. [](#improved)
+    * update npm packages
+
 # v1.0.5
 ##  13/02/2018
 
