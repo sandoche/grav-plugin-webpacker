@@ -22,7 +22,7 @@
     "update": "ncu -u -a"
   },
   "devDependencies": {
-    "eslint": "4.17.0",
+    "eslint": "4.18.0",
     "eslint-config-standard": "11.0.0-beta.0",
     "npm-check-updates": "2.14.0"
   },
@@ -43,7 +43,7 @@
     "css-mqpacker": "6.0.2",
     "cssnano": "v4.0.0-rc.2",
     "duplicate-package-checker-webpack-plugin": "2.1.0",
-    "eslint": "4.17.0",
+    "eslint": "4.18.0",
     "eslint-config-standard": "11.0.0-beta.0",
     "eslint-loader": "1.9.0",
     "eslint-plugin-compat": "2.2.0",
@@ -68,13 +68,13 @@
     "sass-loader": "6.0.6",
     "sort-css-media-queries": "1.3.4",
     "spdy": "3.4.7",
-    "style-loader": "0.20.1",
+    "style-loader": "0.20.2",
     "stylelint": "8.4.0",
     "stylelint-config-standard": "18.0.0",
     "stylelint-order": "0.8.0",
     "stylelint-scss": "2.3.0",
     "stylelint-webpack-plugin": "0.10.2",
-    "uglifyjs-webpack-plugin": "1.1.8",
+    "uglifyjs-webpack-plugin": "1.2.0",
     "webpack": "3.11",
     "webpack-build-notifier": "0.1.22",
     "webpack-bundle-analyzer": "2.10.0",
