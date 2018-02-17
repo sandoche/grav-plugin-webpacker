@@ -60,3 +60,24 @@ PLUGIN_WEBPACKER:
     MISSING_JSON: doesn't exist, run webpack script in production mode to build assets
     WRONG_EXTENSION: extension must be css or js
     MISSING_EXTENSION: must have an extension (css or js)
+  DEVTOOLS:
+    TITLE: Devtools
+    DEV_SOURCEMAPS:
+      LABEL: Development source maps
+      HELP: >-
+        Refer to webpack documentation to choose your settings https://webpack.js.org/configuration/devtool/
+      OPTION:
+        NONE: (none)
+        EVAL: eval
+        EVAL_SOURCEMAP: eval-source-map
+        CHEAP_EVAL_SOURCEMAP: cheap-eval-source-map
+        CHEAP_MODULE_EVAL_SOURCEMAP: cheap-module-eval-source-map
+    PROD_SOURCEMAPS:
+      LABEL: Production source maps
+      HELP: >-
+        Refer to webpack documentation to choose your settings https://webpack.js.org/configuration/devtool/
+      OPTION:
+        NONE: (none)
+        SOURCEMAP: source-map
+        HIDDEN: hidden-source-map
+        NOSOURCES: nosources-source-map

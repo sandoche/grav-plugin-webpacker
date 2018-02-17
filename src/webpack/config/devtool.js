@@ -4,7 +4,7 @@
 // ––––––––––––––––––––––
 
 module.exports = () => {
-  const devtool = GravConfig.dev ? 'cheap-module-eval-source-map' : 'source-map'
+  const devtool = GravConfig.dev ? GravConfig.devSourceMaps : GravConfig.prodSourceMaps
 
   return devtool
 }
