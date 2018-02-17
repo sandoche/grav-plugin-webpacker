@@ -1,3 +1,12 @@
+# v1.0.7
+##  17/02/2018
+
+1. [](#new)
+    * add option in admin to change source maps configuration
+
+1. [](#improved)
+    * update npm packages
+
 # v1.0.6
 ##  15/02/2018
 
