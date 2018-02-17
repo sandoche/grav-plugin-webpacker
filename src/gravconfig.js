@@ -132,6 +132,10 @@ class GravConfig {
     const _vendors = plugin.vendors
     const _commons = plugin.commons
 
+    // Devtools
+    const _devSourceMaps = plugin.dev_sourcemaps
+    const _prodSourceMaps = plugin.prod_sourcemaps
+
     // Browsersync file to refresh
     const _filesToRefresh = prependPath(userPath, ['pages/**/*.md', `themes/${activeTheme}/templates/**/*.twig`])
 
@@ -166,6 +170,8 @@ class GravConfig {
       manifest: _manifest,
       vendors: _vendors,
       commons: _commons,
+      devSourceMaps: _devSourceMaps,
+      prodSourceMaps: _prodSourceMaps,
       filesToRefresh: _filesToRefresh
     }
   }
