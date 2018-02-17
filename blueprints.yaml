@@ -1,5 +1,5 @@
 name: Webpacker
-version: 1.0.6
+version: 1.0.7
 description: Offer a simple way to include the power of webpack inside Grav
 icon: refresh
 keywords: 'grav, plugin, webpack, assets, workflow'
@@ -219,3 +219,31 @@ form:
             '0': PLUGIN_ADMIN.DISABLED
           validate:
             type: bool
+    devtools_section:
+      type: section
+      title: PLUGIN_WEBPACKER.DEVTOOLS.TITLE
+      fields:
+        dev_sourcemaps:
+          type: select
+          size: medium
+          label: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.LABEL
+          help: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.HELP
+          default: local
+          options:
+            (none): PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.NONE
+            eval: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.EVAL
+            eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.EVAL_SOURCEMAP
+            cheap-eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.CHEAP_EVAL_SOURCEMAP
+            cheap-module-eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.CHEAP_MODULE_EVAL_SOURCEMAP
+
+        prod_sourcemaps:
+          type: select
+          size: medium
+          label: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.LABEL
+          help: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.HELP
+          default: local
+          options:
+            (none): PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.OPTION.NONE
+            source-map: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.OPTION.SOURCEMAP
+            hidden-source-map: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.OPTION.HIDDEN
+            nosources-source-map: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.OPTION.NOSOURCES

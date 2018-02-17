@@ -15,3 +15,5 @@ browsersync_notify: true
 manifest: true
 vendors: true
 commons: true
+dev_sourcemaps: cheap-module-eval-source-map
+prod_sourcemaps: (none)
