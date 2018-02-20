@@ -34,7 +34,7 @@
     "@babel/preset-env": "7.0.0-beta.40",
     "@babel/preset-stage-0": "7.0.0-beta.40",
     "assets-webpack-plugin": "3.5.1",
-    "babel-eslint": "8.2.1",
+    "babel-eslint": "8.2.2",
     "babel-loader": "8.0.0-beta.0",
     "browser-sync": "2.23",
     "chalk": "2.3.1",
