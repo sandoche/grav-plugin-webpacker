@@ -30,19 +30,9 @@ const buildCallback = (error, stats) => {
     })}\n`
   )
 
-  // If open website is enabled
-  if (GravConfig.openWebsite) {
-    // open website
-    opn(GravConfig.proxy).then(
-      (() => {
-        // If Bundle Analyzer is not enabled kill node process
-        if (!GravConfig.openBundleAnalyzer) process.exit()
-      })()
-    )
-  } else {
-    // Kill node process
-    process.exit()
-  }
+  // If enabled open website then kill node process else just fill node process
+  if (GravConfig.openWebsite) opn(GravConfig.proxy).then(process.exit())
+  else process.exit()
 }
 
 // Init Webpack build process

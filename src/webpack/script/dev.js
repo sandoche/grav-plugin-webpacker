@@ -138,6 +138,10 @@ const browserSyncServerCallback = () => {
   if (GravConfig.openBrowserSyncUI) {
     opn(`http://localhost:${GravConfig.browserSyncPort}`)
   }
+
+  if (GravConfig.openJarvis) {
+    opn(`http://localhost:${GravConfig.jarvisPort}`)
+  }
 }
 
 // Init BrowserSync server

@@ -104,30 +104,30 @@ module.exports = () => {
     )
   }
 
-  // Create a server with Jarvis Webpack Dashboard
-  if (GravConfig.openJarvis) {
-    plugins.push(
-      new Jarvis({
-        port: GravConfig.jarvisPort
-      })
-    )
-  }
-
-  // Create a server with Bundle Analyzer
-  if (GravConfig.openBundleAnalyzer) {
-    plugins.push(
-      new BundleAnalyzerPlugin({
-        analyzerHost: 'localhost',
-        analyzerPort: GravConfig.bundleAnalyzerPort,
-        logLevel: 'silent'
-      })
-    )
-  }
-
   // Development plugins
   // ––––––––––––––––––––––
 
   if (GravConfig.dev) {
+    // Create a server with Jarvis Webpack Dashboard
+    if (GravConfig.openJarvis) {
+      plugins.push(
+        new Jarvis({
+          port: GravConfig.jarvisPort
+        })
+      )
+    }
+
+    // Create a server with Bundle Analyzer
+    if (GravConfig.openBundleAnalyzer) {
+      plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerHost: 'localhost',
+          analyzerPort: GravConfig.bundleAnalyzerPort,
+          logLevel: 'silent'
+        })
+      )
+    }
+
     plugins.push(
       // enable HMR globally
       new webpack.HotModuleReplacementPlugin(),
