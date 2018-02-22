@@ -7,12 +7,12 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-build-notifier')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const Jarvis = require('webpack-jarvis')
 const chalk = require('chalk')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const AssetsPlugin = require('assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const Jarvis = require('webpack-jarvis')
 const path = require('path')
 
 // PLUGINS CONFIG
@@ -104,30 +104,31 @@ module.exports = () => {
     )
   }
 
+  // Create a server with Jarvis Webpack Dashboard
+  if (GravConfig.openJarvis) {
+    plugins.push(
+      new Jarvis({
+        port: GravConfig.jarvisPort,
+        keepAlive: true
+      })
+    )
+  }
+
+  // Create a server with Bundle Analyzer
+  if (GravConfig.openBundleAnalyzer) {
+    plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerHost: 'localhost',
+        analyzerPort: GravConfig.bundleAnalyzerPort,
+        logLevel: 'silent'
+      })
+    )
+  }
+
   // Development plugins
   // ––––––––––––––––––––––
 
   if (GravConfig.dev) {
-    // Create a server with Jarvis Webpack Dashboard
-    if (GravConfig.openJarvis) {
-      plugins.push(
-        new Jarvis({
-          port: GravConfig.jarvisPort
-        })
-      )
-    }
-
-    // Create a server with Bundle Analyzer
-    if (GravConfig.openBundleAnalyzer) {
-      plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerHost: 'localhost',
-          analyzerPort: GravConfig.bundleAnalyzerPort,
-          logLevel: 'silent'
-        })
-      )
-    }
-
     plugins.push(
       // enable HMR globally
       new webpack.HotModuleReplacementPlugin(),
