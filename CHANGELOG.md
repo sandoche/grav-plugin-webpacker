@@ -1,3 +1,10 @@
+# v1.0.8
+##  27/02/2018
+
+1. [](#improved)
+    * overal cleanup
+    * update npm packages
+
 # v1.0.7
 ##  17/02/2018
 

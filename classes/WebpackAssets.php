@@ -67,10 +67,10 @@ class WebpackAssets
       $fileExt = $pathInfo['extension'];
 
       // Check if file extension is CSS or JS
-      if ($fileExt == 'css' || $fileExt == 'js') {
+      if ($fileExt === 'css' || $fileExt === 'js') {
 
         // Check if mode is development
-        if ($mode == 'development') {
+        if ($mode === 'development') {
           // Asset path
           $assetRelPath = '/assets/js/' . $fileName . '.js';
           $assetAbsPath = $assetRelPath;
@@ -78,14 +78,14 @@ class WebpackAssets
           // Overwrite settings for development
           $priority = null;
           $pipeline = false;
-          $loading = $fileName == 'manifest' || $fileName == 'vendors' || $fileName == 'commons' ? null : 'defer';
+          $loading = $fileName === 'manifest' || $fileName === 'vendors' || $fileName === 'commons' ? null : 'defer';
           $group = null;
 
           // Add JS
           $assets->addJs($assetAbsPath, $priority, $pipeline, $loading, $group);
 
         // Check if mode is production
-        } elseif ($mode == 'production') {
+        } elseif ($mode === 'production') {
           $webpackAssets = $locator->findResource('theme://assets/' . $webpackerJson, true);
 
           // Check if wepack-assets.json exist
@@ -94,7 +94,7 @@ class WebpackAssets
             $assetsArray = json_decode(file_get_contents($webpackAssets), true);
 
             // Check if file is vendors or commons
-            if ($fileName == 'vendors' || $fileName == 'commons') {
+            if ($fileName === 'vendors' || $fileName === 'commons') {
               // Stop here if file is not in wepack-assets.json index
               if (!array_key_exists($fileName, $assetsArray)) return;
             }
@@ -107,12 +107,12 @@ class WebpackAssets
             if (file_exists($assetAbsPath)) {
 
               // Check if file extension is CSS
-              if ($fileExt == 'css') {
+              if ($fileExt === 'css') {
                 // Add CSS
                 $assets->addCss($assetRelPath['css'], $priority, $pipeline, $group, $loading);
 
               // Check if file extension is JS
-              } elseif ($fileExt == 'js') {
+              } elseif ($fileExt === 'js') {
                 // Add JS
                 $assets->addJs($assetRelPath['js'], $priority, $pipeline, $loading, $group);
               }
