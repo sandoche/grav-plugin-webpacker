@@ -82,17 +82,17 @@ class WebpackerPlugin extends Plugin
 
     // Add menifest asset if enabled
     if ($webpackerConfig['manifest']) {
-      $webpackAssets->add('manifest.js', 10, 'inline', null, null);
+      $webpackAssets->add('manifest.js', 10, false, 'defer', null);
     }
 
     // Add vendors asset if enabled
     if ($webpackerConfig['vendors']) {
-      $webpackAssets->add('vendors.js', 10, false, null, null);
+      $webpackAssets->add('vendors.js', 10, false, 'defer', null);
     }
 
     // Add commons asset if enabled
     if ($webpackerConfig['commons']) {
-      $webpackAssets->add('commons.js', 10, false, null, null);
+      $webpackAssets->add('commons.js', 10, false, 'defer', null);
     }
   }
 

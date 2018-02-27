@@ -135,9 +135,11 @@ const browserSyncServerOptions = {
 
 // BrowserSync server callback
 const browserSyncServerCallback = () => {
-  if (GravConfig.openBrowserSyncUI) {
-    opn(`http://localhost:${GravConfig.browserSyncPort}`)
-  }
+  // Open BrowserSync UI if enabled
+  if (GravConfig.openBrowserSyncUI) opn(`http://localhost:${GravConfig.browserSyncPort}`)
+
+  // Open Jarvis if enabled
+  if (GravConfig.openJarvis) opn(`http://localhost:${GravConfig.jarvisPort}`)
 }
 
 // Init BrowserSync server

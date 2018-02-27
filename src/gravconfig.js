@@ -7,7 +7,7 @@ const cli = require('yargs').argv
 // HELPERS
 // ––––––––––––––––––––––
 
-function parseYaml (userPath, yamlFile) {
+const parseYaml = (userPath, yamlFile) => {
   const configPath = `${userPath}/config`
   const yamlPath = path.resolve(configPath, yamlFile)
   const yamlContents = fs.readFileSync(yamlPath, 'utf8')
@@ -15,7 +15,7 @@ function parseYaml (userPath, yamlFile) {
   return yaml.load(yamlContents)
 }
 
-function uriEncode (object) {
+const uriEncode = object => {
   return encodeURIComponent(JSON.stringify(object))
 }
 
@@ -176,4 +176,6 @@ class GravConfig {
     }
   }
 }
+
+// Export Grav Config
 module.exports = GravConfig

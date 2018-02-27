@@ -30,19 +30,14 @@ const buildCallback = (error, stats) => {
     })}\n`
   )
 
-  // If open website is enabled
-  if (GravConfig.openWebsite) {
-    // open website
-    opn(GravConfig.proxy).then(
-      (() => {
-        // If Bundle Analyzer is not enabled kill node process
-        if (!GravConfig.openBundleAnalyzer) process.exit()
-      })()
-    )
-  } else {
-    // Kill node process
-    process.exit()
-  }
+  // Open website on local server if enabled
+  if (GravConfig.openWebsite) opn(GravConfig.proxy)
+
+  // Open Jarvis if enabled
+  if (GravConfig.openJarvis) opn(`http://localhost:${GravConfig.jarvisPort}`)
+
+  // Kill node process if BundleAnalyzer and Jarvis are not enabled
+  if (!GravConfig.openBundleAnalyzer && !GravConfig.openJarvis) process.exit()
 }
 
 // Init Webpack build process

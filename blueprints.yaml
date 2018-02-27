@@ -1,5 +1,5 @@
 name: Webpacker
-version: 1.0.7
+version: 1.0.8
 description: Offer a simple way to include the power of webpack inside Grav
 icon: refresh
 keywords: 'grav, plugin, webpack, assets, workflow'
@@ -235,7 +235,6 @@ form:
             eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.EVAL_SOURCEMAP
             cheap-eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.CHEAP_EVAL_SOURCEMAP
             cheap-module-eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.CHEAP_MODULE_EVAL_SOURCEMAP
-
         prod_sourcemaps:
           type: select
           size: medium
