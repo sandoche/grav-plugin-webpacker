@@ -235,7 +235,6 @@ form:
             eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.EVAL_SOURCEMAP
             cheap-eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.CHEAP_EVAL_SOURCEMAP
             cheap-module-eval-source-map: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.CHEAP_MODULE_EVAL_SOURCEMAP
-
         prod_sourcemaps:
           type: select
           size: medium

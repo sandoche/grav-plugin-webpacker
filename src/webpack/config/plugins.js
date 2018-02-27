@@ -2,7 +2,6 @@
 
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-build-notifier')
@@ -26,9 +25,6 @@ module.exports = () => {
 
   // Better error feedback in the console
   plugins.push(new FriendlyErrorsWebpackPlugin())
-
-  // Check for duplicate content
-  plugins.push(new DuplicatePackageCheckerPlugin())
 
   // Support for webpack 3 scope hoisting
   if (GravConfig.prod) {
@@ -89,7 +85,7 @@ module.exports = () => {
     })
   )
 
-  // Provide OS Notifier
+  // Provide OS Notification
   if (GravConfig.osNotify) {
     plugins.push(
       new WebpackNotifierPlugin({
