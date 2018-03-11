@@ -1,3 +1,13 @@
+# v1.0.9
+##  03/11/2018
+
+1. [](#bugfix)
+    * fix changelog
+
+1. [](#improved)
+    * add new os notification on build start
+    * update npm packages
+
 # v1.0.8
 ##  02/27/2018
 
@@ -32,7 +42,7 @@
 # v1.0.4
 ##  02/10/2018
 
-1. [](#fix)
+1. [](#bugfix)
     * fix wrong image for os notification
 
 1. [](#improved)
@@ -42,7 +52,7 @@
 # v1.0.3
 ##  02/07/2018
 
-1. [](#fix)
+1. [](#bugfix)
     * fix an issue with vendors.js and common.js in PHP part of the plugin
 
 # v1.0.2
