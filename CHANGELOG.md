@@ -1,3 +1,9 @@
+# v1.1.0
+##  03/12/2018
+
+1. [](#bugfix)
+    * rollback to webpack 3 (waiting for better webpack 4 doc)
+
 # v1.0.9
 ##  03/11/2018
 
