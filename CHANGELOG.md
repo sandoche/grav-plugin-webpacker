@@ -1,3 +1,9 @@
+# v1.1.1
+##  03/20/2018
+
+1. [](#improved)
+    * update all ports to leave 3000 port free for proxy on default localhost
+
 # v1.1.0
 ##  03/12/2018
 
@@ -9,7 +15,6 @@
 
 1. [](#bugfix)
     * fix changelog
-
 1. [](#improved)
     * add new os notification on build start
     * update npm packages
@@ -26,7 +31,6 @@
 
 1. [](#new)
     * add option in admin to change source maps configuration
-
 1. [](#improved)
     * update npm packages
 
@@ -35,7 +39,6 @@
 
 1. [](#new)
     * add Jarvis Webpack dashboard
-
 1. [](#improved)
     * update npm packages
 
@@ -50,7 +53,6 @@
 
 1. [](#bugfix)
     * fix wrong image for os notification
-
 1. [](#improved)
     * update npm packages
     * update boilerplate, language and licence
@@ -72,7 +74,6 @@
 
 1. [](#new)
     * update frontend url in admin depending on Webpacker mode
-
 1. [](#improved)
     * update npm packages
     * update language and cleanup
