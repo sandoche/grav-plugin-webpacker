@@ -1,3 +1,9 @@
+# v1.1.1
+##  03/20/2018
+
+1. [](#improved)
+    * update all ports to leave 3000 port free for proxy on default localhost
+
 # v1.1.0
 ##  03/12/2018
 
