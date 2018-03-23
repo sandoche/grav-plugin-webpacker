@@ -85,6 +85,14 @@ module.exports = () => {
     })
   )
 
+  // Provide access to environment from assets
+  plugins.push(
+    new webpack.DefinePlugin({
+      WEBPACKER_DEV: GravConfig.dev,
+      WEBPACKER_PROD: GravConfig.prod
+    })
+  )
+
   // Provide OS Notification
   if (GravConfig.osNotify) {
     plugins.push(
