@@ -1,3 +1,9 @@
+# v1.1.2
+##  03/23/2018
+
+1. [](#new)
+    * add WEBPACKER_DEV and WEBPACKER_PROD const accessible from assets
+
 # v1.1.1
 ##  03/20/2018
 
