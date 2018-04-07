@@ -1,3 +1,9 @@
+# v1.1.4
+##  04/07/2018
+
+1. [](#bugfix)
+    * fix accidentaly remove import in .eslintrc boilerplate
+
 # v1.1.3
 ##  04/07/2018
 
