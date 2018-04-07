@@ -228,7 +228,7 @@ form:
           size: medium
           label: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.LABEL
           help: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.HELP
-          default: local
+          default: cheap-module-eval-source-map
           options:
             (none): PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.NONE
             eval: PLUGIN_WEBPACKER.DEVTOOLS.DEV_SOURCEMAPS.OPTION.EVAL
@@ -240,7 +240,7 @@ form:
           size: medium
           label: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.LABEL
           help: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.HELP
-          default: local
+          default: (none)
           options:
             (none): PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.OPTION.NONE
             source-map: PLUGIN_WEBPACKER.DEVTOOLS.PROD_SOURCEMAPS.OPTION.SOURCEMAP
