@@ -1,3 +1,11 @@
+# v1.1.3
+##  04/07/2018
+
+1. [](#improved)
+    * better boilerplate using .browserlistrc
+    * disable browser eslint compat plugin
+    * show warning in overlay by default
+
 # v1.1.2
 ##  03/23/2018
 
