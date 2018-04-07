@@ -1,7 +1,6 @@
 {
   "root": true,
   "extends": ["standard", "plugin:import/errors", "plugin:import/warnings"],
-  "plugins": ["compat", "import"],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
@@ -20,8 +19,7 @@
     "arrow-parens": 0,
     "generator-star-spacing": 0,
     "no-debugger": 0,
-    "no-new": 0,
-    "compat/compat": "error"
+    "no-new": 0
   },
   "settings": {
     "polyfills": ["promises", "intersectionobserver"]

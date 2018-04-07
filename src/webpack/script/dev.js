@@ -19,7 +19,7 @@ const path = require('path')
 // customize options of [node_modules/webpack-hot-middleware/client.js] for hotMiddleware server
 const customHotMiddlewareScript = `webpack-hot-middleware/client?path=/__webpack_hmr&reload=true&timeout=4000&noinfo=true&quiet=${GravConfig.displayErrorInConsole}&overlay=${
   GravConfig.displayErrorAsOverlay
-}&ansiColors=${GravConfig.overlayColors}&overlayStyles=${GravConfig.overlayStyles}`
+}&overlayWarnings=true&ansiColors=${GravConfig.overlayColors}&overlayStyles=${GravConfig.overlayStyles}`
 
 // webpack entry array
 const webpackEntry = WebpackConfig.entry
