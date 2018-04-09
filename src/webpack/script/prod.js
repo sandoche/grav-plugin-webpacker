@@ -1,7 +1,10 @@
 /* global GravConfig */
 
+// Webpack
 const webpack = require('webpack')
 const WebpackConfig = require(`../webpack.config`)
+
+// Tools libraries
 const opn = require('opn')
 
 // PROD SCRIPT

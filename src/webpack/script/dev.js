@@ -1,10 +1,13 @@
 /* global GravConfig WebpackerPath */
 
+// Webpack
 const webpack = require('webpack')
 const WebpackConfig = require(`../webpack.config`)
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const browserSyncServer = require('browser-sync').create()
+
+// Tools libraries
 const osNotifier = require('node-notifier')
 const chalk = require('chalk')
 const opn = require('opn')

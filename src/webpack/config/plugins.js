@@ -1,18 +1,23 @@
 /* global GravConfig WebpackerPath */
 
+// Webpack
 const webpack = require('webpack')
+
+// Tools libraries
+const path = require('path')
+const chalk = require('chalk')
+
+// Plugins libraries
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-build-notifier')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Jarvis = require('webpack-jarvis')
-const chalk = require('chalk')
+const JarvisPlugin = require('webpack-jarvis')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const AssetsPlugin = require('assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const path = require('path')
 
 // PLUGINS CONFIG
 // ––––––––––––––––––––––
@@ -112,7 +117,7 @@ module.exports = () => {
   // Create a server with Jarvis Webpack Dashboard
   if (GravConfig.openJarvis) {
     plugins.push(
-      new Jarvis({
+      new JarvisPlugin({
         port: GravConfig.jarvisPort,
         keepAlive: true
       })

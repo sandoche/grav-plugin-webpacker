@@ -1,4 +1,6 @@
 /* global GravConfig */
+
+// Plugins libraries
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 // MODULES CONFIG
