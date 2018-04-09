@@ -27,10 +27,18 @@ PLUGIN_WEBPACKER:
         LOCAL: local
         EXTERNAL: external
         TUNNEL: tunnel
-    SHOW_BUILD_ERROR: Show errors
-    SHOW_BUILD_ERROR_HELP: How coding errors, linting errors and webpack runtime errors must be display in the web browser
-    SHOW_BUILD_ERROR_OVERLAY: as overlay
-    SHOW_BUILD_ERROR_CONSOLE: in the console
+    CONSOLE: Console
+    CONSOLE_HELP: How coding errors, linting errors and webpack runtime errors must be display in the web browser
+    OVERLAY: Overlay
+    OVERLAY_HELP: How coding errors, linting errors and webpack runtime errors must be display in the web browser
+    SHOW_ERROR: display errors
+    SHOW_WARNING: display warnings
+
+    OVERLAY_THEME: Overlay theme
+    OVERLAY_THEME_HELP: How coding errors, linting errors and webpack runtime errors must be display in the web browser
+    OVERLAY_THEME_DARK: dark
+    OVERLAY_THEME_LIGHT: light
+
   TOOLS:
     TITLE: Tools
     OPEN_BROWSERSYNC_UI: BrowserSync UI

@@ -79,9 +79,25 @@ class GravConfig {
     const _https = plugin.https
     const _httpModule = _https ? 'spdy' : null
     const _tunnel = plugin.tunnel
-    const _buildErrorDisplayList = plugin.build_error_display
-    const _displayErrorInConsole = !_buildErrorDisplayList.console
-    const _displayErrorAsOverlay = _buildErrorDisplayList.overlay
+    const _consoleDisplayError = plugin.console_display.error
+    const _consoleDisplayWarning = plugin.console_display.warning
+    const _overlayDisplayError = plugin.overlay_display.error
+    const _overlayDisplayWarning = plugin.overlay_display.warning
+
+    // Overlay styles
+    const overlayThemeColor = plugin.overlay_theme
+
+    const overlayTheme = {
+      dark: {
+        background: '#1D1D26',
+        color: '#CCCCCC'
+      },
+      light: {
+        background: '#F9F9F9',
+        color: '#1D1D26'
+      }
+    }
+
     const _overlayColors = uriEncode({
       reset: ['transparent', 'transparent'],
       black: '181818',
@@ -94,9 +110,10 @@ class GravConfig {
       lightgrey: 'EBE7E3',
       darkgrey: '6D7891'
     })
+
     const _overlayStyles = uriEncode({
-      background: '#1D1D26',
-      color: '#CCCCCC',
+      background: overlayTheme[overlayThemeColor].background,
+      color: overlayTheme[overlayThemeColor].color,
       lineHeight: '20px',
       whiteSpace: 'pre',
       fontFamily: 'Menlo, Consolas, monospace',
@@ -157,8 +174,12 @@ class GravConfig {
       publicPath: _publicPath,
       openWebsite: _openWebsite,
       openUrl: _openUrl,
-      displayErrorInConsole: _displayErrorInConsole,
-      displayErrorAsOverlay: _displayErrorAsOverlay,
+      consoleDisplayError: _consoleDisplayError,
+      consoleDisplayWarning: _consoleDisplayWarning,
+      overlayDisplayError: _overlayDisplayError,
+      overlayDisplayWarning: _overlayDisplayWarning,
+      displayErrorInConsole: true,
+      displayErrorAsOverlay: true,
       overlayColors: _overlayColors,
       overlayStyles: _overlayStyles,
       osNotify: _osNotify,

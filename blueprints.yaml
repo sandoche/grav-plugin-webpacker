@@ -97,17 +97,37 @@ form:
             local: PLUGIN_WEBPACKER.WEBBROWSER.URL.OPTION.LOCAL
             external: PLUGIN_WEBPACKER.WEBBROWSER.URL.OPTION.EXTERNAL
             tunnel: PLUGIN_WEBPACKER.WEBBROWSER.URL.OPTION.TUNNEL
-        build_error_display:
+        console_display:
           type: checkboxes
-          label: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_BUILD_ERROR
-          help: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_BUILD_ERROR_HELP
+          label: PLUGIN_WEBPACKER.WEBBROWSER.CONSOLE
+          help: PLUGIN_WEBPACKER.WEBBROWSER.CONSOLE_HELP
           default:
-            overlay: true
-            console: false
+            error: false
+            warning: true
           options:
-            overlay: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_BUILD_ERROR_OVERLAY
-            console: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_BUILD_ERROR_CONSOLE
+            error: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_ERROR
+            warning: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_WARNING
           use: keys
+        overlay_display:
+          type: checkboxes
+          label: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY
+          help: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_HELP
+          default:
+            error: false
+            warning: true
+          options:
+            error: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_ERROR
+            warning: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_WARNING
+          use: keys
+        overlay_theme:
+          type: select
+          size: medium
+          label: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME
+          help: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME_HELP
+          default: dark
+          options:
+            dark: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME_DARK
+            light: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME_LIGHT
     tools_section:
       type: section
       title: PLUGIN_WEBPACKER.TOOLS.TITLE
