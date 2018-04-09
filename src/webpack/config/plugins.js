@@ -160,7 +160,8 @@ module.exports = () => {
       new CleanWebpackPlugin(['*'], {
         root: GravConfig.outputPath,
         beforeEmit: true,
-        verbose: false
+        verbose: false,
+        exclude: ['.gitkeep']
       }),
 
       // Will cause hashes to be based on the relative path of the module, generating a four character string as the module id
