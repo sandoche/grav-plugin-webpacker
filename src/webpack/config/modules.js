@@ -1,9 +1,5 @@
 /* global GravConfig */
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const mqpacker = require('css-mqpacker')
-const sortCSSmq = require('sort-css-media-queries')
-const cssnext = require('postcss-cssnext')
-const cssnano = require('cssnano')
 
 // MODULES CONFIG
 // ––––––––––––––––––––––
@@ -55,20 +51,7 @@ module.exports = () => {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
-                plugins: () => [
-                  mqpacker({
-                    sort: sortCSSmq
-                  }),
-                  cssnext({
-                    features: {
-                      customProperties: {
-                        warnings: false
-                      }
-                    }
-                  }),
-                  cssnano()
-                ]
+                sourceMap: true
               }
             },
             {
