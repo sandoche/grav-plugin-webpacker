@@ -1,5 +1,8 @@
-const path = require('path')
+// Webpacker
 const webpacker = require('grav-plugin-webpacker')
+
+// Tools libraries
+const path = require('path')
 
 // The path to Grav USER folder
 const userPath = path.resolve(__dirname, '../../')

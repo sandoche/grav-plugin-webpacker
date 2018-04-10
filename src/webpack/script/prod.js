@@ -1,7 +1,10 @@
 /* global GravConfig */
 
+// Webpack
 const webpack = require('webpack')
 const WebpackConfig = require(`../webpack.config`)
+
+// Tools libraries
 const opn = require('opn')
 
 // PROD SCRIPT
@@ -23,10 +26,11 @@ const buildCallback = (error, stats) => {
       children: false,
       chunks: false,
       chunkModules: false,
+      entrypoints: false,
       version: false,
       hash: false,
       timings: false,
-      excludeAssets: /\.map$/
+      excludeAssets: [/\.map$/]
     })}\n`
   )
 

@@ -1,14 +1,18 @@
 /* global GravConfig WebpackerPath */
 
+// Webpack
 const webpack = require('webpack')
 const WebpackConfig = require(`../webpack.config`)
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const browserSyncServer = require('browser-sync').create()
+
+// Tools libraries
 const osNotifier = require('node-notifier')
 const chalk = require('chalk')
 const opn = require('opn')
 const path = require('path')
+const queryString = require('query-string')
 
 // DEV SCRIPT
 // ––––––––––––––––––––––
@@ -16,16 +20,30 @@ const path = require('path')
 // Hot middleware
 // ––––––––––––––––––––––
 
-// customize options of [node_modules/webpack-hot-middleware/client.js] for hotMiddleware server
-const customHotMiddlewareScript = `webpack-hot-middleware/client?path=/__webpack_hmr&reload=true&timeout=4000&noinfo=true&quiet=${GravConfig.displayErrorInConsole}&overlay=${
-  GravConfig.displayErrorAsOverlay
-}&overlayWarnings=true&ansiColors=${GravConfig.overlayColors}&overlayStyles=${GravConfig.overlayStyles}`
+// config of [node_modules/webpack-hot-middleware/client.js] for hotMiddleware server
+const hotMiddlewareClientConfig = {
+  path: '/__webpack_hmr',
+  reload: true,
+  timeout: 4000,
+  noinfo: !GravConfig.consoleDisplayWarning,
+  quiet: !GravConfig.consoleDisplayError,
+  overlay: GravConfig.overlayDisplayError,
+  overlayWarnings: GravConfig.overlayDisplayWarning,
+  overlayStyles: GravConfig.overlayStyles,
+  ansiColors: GravConfig.overlayColors
+}
+
+const hotMiddlewareClientConfigQuery = queryString.stringify(hotMiddlewareClientConfig, {
+  encode: false,
+  sort: false
+})
+const hotMiddlewareClient = `webpack-hot-middleware/client?${hotMiddlewareClientConfigQuery}`
 
 // webpack entry array
 const webpackEntry = WebpackConfig.entry
 
-// add hotMiddleware custom script to each entry
-for (const name in webpackEntry) webpackEntry[name] = [customHotMiddlewareScript, ...webpackEntry[name]]
+// add hotMiddleware client to each entry
+for (const name in webpackEntry) webpackEntry[name] = [hotMiddlewareClient, ...webpackEntry[name]]
 
 // Browsersync server
 // ––––––––––––––––––––––
