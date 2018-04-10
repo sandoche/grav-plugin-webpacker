@@ -1,6 +1,10 @@
-/* global GravConfig */
-
+// Configurations
+const modeConfig = require('./config/mode')
+const performanceConfig = require('./config/performance')
+const optimizationConfig = require('./config/optimization')
 const devtoolConfig = require('./config/devtool')
+const entryConfig = require('./config/entry')
+const outputConfig = require('./config/ouput')
 const resolveConfig = require('./config/resolve')
 const modulesConfig = require('./config/modules')
 const pluginsConfig = require('./config/plugins')
@@ -9,24 +13,23 @@ const pluginsConfig = require('./config/plugins')
 // ––––––––––––––––––––––
 
 const WebpackConfig = {
-  // Turns OFF error when hints are found (an asset is over 250kb)
-  performance: {
-    hints: false
-  },
+  // Webpack mode configuration
+  mode: modeConfig(),
 
-  // List of input assets
-  entry: GravConfig.entry,
+  // Performance configuration
+  performance: performanceConfig(),
 
-  // Assets output configuration
-  output: {
-    path: GravConfig.outputPath,
-    filename: GravConfig.dev ? 'js/[name].js' : 'js/[name].[hash].js',
-    chunkFilename: GravConfig.dev ? 'js/chunk_[name].js' : 'js/chunk_[name].[chunkhash].js',
-    publicPath: GravConfig.dev ? '/assets/' : GravConfig.publicPath
-  },
+  // Optimization configuration
+  optimization: optimizationConfig(),
 
   // Source maps configuration
   devtool: devtoolConfig(),
+
+  // Assets entry configuration
+  entry: entryConfig(),
+
+  // Assets output configuration
+  output: outputConfig(),
 
   // Modules resolving configuration
   resolve: resolveConfig(),

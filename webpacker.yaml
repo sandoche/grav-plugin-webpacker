@@ -4,11 +4,16 @@ https: false
 tunnel: false
 open_website: true
 open_url: local
-build_error_display:
-  overlay: true
-  console: true
+console_display:
+  error: true
+  warning: true
+overlay_display:
+  error: true
+  warning: true
+overlay_theme: dark
 open_browsersyncui: true
 open_bundleanalyzer: true
+open_jarvis: true
 os_notify: true
 os_notify_sound: true
 browsersync_notify: true
