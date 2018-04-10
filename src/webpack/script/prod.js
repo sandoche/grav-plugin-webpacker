@@ -26,10 +26,11 @@ const buildCallback = (error, stats) => {
       children: false,
       chunks: false,
       chunkModules: false,
+      entrypoints: false,
       version: false,
       hash: false,
       timings: false,
-      excludeAssets: /\.map$/
+      excludeAssets: [/\.map$/]
     })}\n`
   )
 
