@@ -1,3 +1,5 @@
+const deepmerge = require('deepmerge')
+
 /* global GravConfig */
 
 // Plugins libraries
@@ -7,37 +9,47 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 // ––––––––––––––––––––––
 
 module.exports = () => {
-  const optimization = {
-    // Code splitting for Commons modules
-    // Code splitting for webpack runtime code
-    // Move modules used in multiple assets to a separate commons.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed
+  let optimization = {
+    // To keep filename consistent between different modes
+    occurrenceOrder: true
+  }
+
+  // Code splitting webpack runtime code
+  const runtimeChunk = {
     runtimeChunk: {
       name: 'manifest'
-    },
+    }
+  }
+
+  // Code splitting entries common code
+  const commonsChunk = {
     splitChunks: {
       cacheGroups: {
-        // Move modules used in multiple assets to a separate commons.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed
         commons: {
           name: 'commons',
           chunks: 'initial',
           minChunks: 2
-          // filename: GravConfig.dev ? 'js/[name].js' : 'js/[name].[hash].js'
-        },
-        // Code splitting for node_modules vendors
-        // Move node_modules vendors to a separate vendors.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-          // filename: GravConfig.dev ? 'js/[name].js' : 'js/[name].[hash].js'
         }
       }
     }
   }
 
-  // Minify JS
-  if (GravConfig.prod) {
-    optimization.minimizer = [
+  // Code splitting node_modules vendors
+  const vendorsChunk = {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
+
+  // Minify JS options
+  const UglifyJsMinimizer = {
+    minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
@@ -55,6 +67,11 @@ module.exports = () => {
       })
     ]
   }
+
+  if (GravConfig.manifest) optimization = { ...optimization, ...runtimeChunk }
+  if (GravConfig.commons) optimization = deepmerge(optimization, commonsChunk)
+  if (GravConfig.vendors) optimization = deepmerge(optimization, vendorsChunk)
+  if (GravConfig.prod) optimization = { ...optimization, ...UglifyJsMinimizer }
 
   return optimization
 }
