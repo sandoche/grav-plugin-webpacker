@@ -161,6 +161,7 @@ class GravConfig {
     return {
       appName: 'webpacker',
       entry: _entry,
+      mode: webpackerMode,
       dev: _dev,
       prod: _prod,
       proxy: _proxy,
