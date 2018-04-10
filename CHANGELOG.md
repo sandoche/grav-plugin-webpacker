@@ -1,3 +1,12 @@
+# v1.1.5
+##  04/10/2018
+
+1. [](#new)
+    * add dark and light theme overlay
+1. [](#improved)
+    * migrate to webpack 4
+    * cleanup and optimization
+
 # v1.1.4
 ##  04/07/2018
 
