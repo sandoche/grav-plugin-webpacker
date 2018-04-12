@@ -10,6 +10,8 @@ PLUGIN_WEBPACKER:
     TITLE: Development server
     BROWSERSYNC_HTTPS: HTTPS
     BROWSERSYNC_HTTPS_HELP: Toggle HTTPS on server with HTTP2
+    BROWSERSYNC_SSL_CERTS: SSL certificates
+    BROWSERSYNC_SSL_CERTS_HELP: Toggle SSL certificates to prevent browser security message (HTTPS settings need to be enabled)
     PROXY: Proxy
     PROXY_PLACEHOLDER: 'e.g. http(s)://domain_name.dev'
     PROXY_HELP: The php server domain where Grav is running
