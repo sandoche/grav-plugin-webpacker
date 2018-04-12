@@ -44,13 +44,18 @@ Note that if you use the admin plugin, a file with your configuration, and named
 
 ## Usage
 
-**Describe how to use the plugin.**
+### SSL certificates
 
-## Credits
+To use localhost certificate provide by grav webpacker plugin you must run the following command from grav webpacker plugin directory.
 
-**Did you incorporate third-party code? Want to thank somebody?**
+ #### Add trusted root certificates commands
 
-## To Do
+Mac OS X
+```bash
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/localhost.crt
+```
 
-- [ ] Future plans, if any
-
+Windows
+```bash
+certutil -addstore -f "ROOT" certs/localhost.crt
+```
