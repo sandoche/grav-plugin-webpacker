@@ -45,6 +45,12 @@ class GravConfig {
     // Grav system config
     const system = parseYaml(userPath, 'system.yaml')
 
+    // Localhost certificates
+    const sslCerts = {
+      key: path.resolve(userPath, 'plugins/webpacker/certs/localhost.key'),
+      cert: path.resolve(userPath, 'plugins/webpacker/certs/localhost.crt')
+    }
+
     // Active theme
     const activeTheme = system.pages.theme
 
@@ -77,7 +83,7 @@ class GravConfig {
 
     // Development server
     const _proxy = plugin.proxy
-    const _https = plugin.https
+    const _https = plugin.https ? (plugin.ssl_certs ? sslCerts : true) : false
     const _httpModule = _https ? 'spdy' : null
     const _tunnel = plugin.tunnel
     const _consoleDisplayError = plugin.console_display.error
