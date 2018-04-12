@@ -1,3 +1,9 @@
+# v1.1.6
+##  04/12/2018
+
+1. [](#new)
+    * add ssl certificates options
+
 # v1.1.5
 ##  04/10/2018
 
