@@ -1,3 +1,11 @@
+# v1.1.7
+##  04/17/2018
+
+1. [](#improved)
+    * update npm packages
+    * better documentation
+    * replace overlay theme option by two options to choose colors from admin
+
 # v1.1.6
 ##  04/12/2018
 

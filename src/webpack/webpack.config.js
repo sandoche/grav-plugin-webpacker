@@ -25,13 +25,13 @@ const WebpackConfig = {
   // Source maps configuration
   devtool: devtoolConfig(),
 
-  // Assets entry configuration
+  // Entry configuration
   entry: entryConfig(),
 
-  // Assets output configuration
+  // Output configuration
   output: outputConfig(),
 
-  // Modules resolving configuration
+  // Resole configuration
   resolve: resolveConfig(),
 
   // Modules configuration

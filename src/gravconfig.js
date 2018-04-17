@@ -92,19 +92,6 @@ class GravConfig {
     const _overlayDisplayWarning = plugin.overlay_display.warning
 
     // Overlay styles
-    const overlayThemeColor = plugin.overlay_theme
-
-    const overlayTheme = {
-      dark: {
-        background: '#1D1D26',
-        color: '#CCCCCC'
-      },
-      light: {
-        background: '#F9F9F9',
-        color: '#1D1D26'
-      }
-    }
-
     const _overlayColors = uriEncode({
       reset: ['transparent', 'transparent'],
       black: '181818',
@@ -119,8 +106,8 @@ class GravConfig {
     })
 
     const _overlayStyles = uriEncode({
-      background: overlayTheme[overlayThemeColor].background,
-      color: overlayTheme[overlayThemeColor].color,
+      color: plugin.overlay_text_color,
+      background: plugin.overlay_bg_color,
       lineHeight: '20px',
       whiteSpace: 'pre',
       fontFamily: 'Menlo, Consolas, monospace',

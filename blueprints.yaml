@@ -1,5 +1,5 @@
 name: Webpacker
-version: 1.1.6
+version: 1.1.7
 description: Offer a simple way to include the power of webpack inside Grav
 icon: refresh
 keywords: 'grav, plugin, webpack, assets, workflow'
@@ -130,15 +130,16 @@ form:
             error: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_ERROR
             warning: PLUGIN_WEBPACKER.WEBBROWSER.SHOW_WARNING
           use: keys
-        overlay_theme:
-          type: select
-          size: medium
-          label: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME
-          help: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME_HELP
-          default: dark
-          options:
-            dark: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME_DARK
-            light: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_THEME_LIGHT
+        overlay_text_color:
+          type: colorpicker
+          label: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_TEXT_COLOR
+          help: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_TEXT_COLOR_HELP
+          default: "#CCCCCC"
+        overlay_bg_color:
+          type: colorpicker
+          label: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_BG_COLOR
+          help: PLUGIN_WEBPACKER.WEBBROWSER.OVERLAY_BG_COLOR_HELP
+          default: "#1D1D26"
     tools_section:
       type: section
       title: PLUGIN_WEBPACKER.TOOLS.TITLE

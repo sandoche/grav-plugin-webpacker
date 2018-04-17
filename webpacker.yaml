@@ -11,7 +11,8 @@ console_display:
 overlay_display:
   error: true
   warning: true
-overlay_theme: dark
+overlay_text_color: '#CCCCCC'
+overlay_bg_color: '#1D1D26'
 open_browsersyncui: true
 open_bundleanalyzer: true
 open_jarvis: true
