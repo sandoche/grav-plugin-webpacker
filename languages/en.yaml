@@ -24,7 +24,7 @@ PLUGIN_WEBPACKER:
     URL:
       LABEL: Website URL
       HELP: >-
-        URL to open if option is enabled. Local URL can be access on this machine only. External URL can be access if on the same server. Tunnel URL can be access if connected to internet and Tunnel option is enabled
+        URL to open if option is enabled. Local URL can be access on this machine only. External URL can be access if connected to the same server. Tunnel URL can be access if connected to internet and Tunnel option is enabled
       OPTION:
         LOCAL: local
         EXTERNAL: external
@@ -35,12 +35,10 @@ PLUGIN_WEBPACKER:
     OVERLAY_HELP: How coding errors, linting errors and webpack runtime errors must be display in the web browser
     SHOW_ERROR: display errors
     SHOW_WARNING: display warnings
-
-    OVERLAY_THEME: Overlay theme
-    OVERLAY_THEME_HELP: How coding errors, linting errors and webpack runtime errors must be display in the web browser
-    OVERLAY_THEME_DARK: dark
-    OVERLAY_THEME_LIGHT: light
-
+    OVERLAY_TEXT_COLOR: Overlay text color
+    OVERLAY_TEXT_COLOR_HELP: The text color for the the web browser overlay
+    OVERLAY_BG_COLOR: Overlay background color
+    OVERLAY_BG_COLOR_HELP: The background color for the the web browser overlay
   TOOLS:
     TITLE: Tools
     OPEN_BROWSERSYNC_UI: BrowserSync UI
@@ -65,13 +63,8 @@ PLUGIN_WEBPACKER:
     VENDORS_HELP: Move node_modules vendors to a separate vendors.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed
     COMMONS: Commons
     COMMONS_HELP: Move modules used in multiple assets to a separate commons.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed
-  ERRORS:
-    MISSING_FILE: doesn't exist, check your theme assets folder and run webpack script in production mode to build assets
-    MISSING_JSON: doesn't exist, run webpack script in production mode to build assets
-    WRONG_EXTENSION: extension must be css or js
-    MISSING_EXTENSION: must have an extension (css or js)
   DEVTOOLS:
-    TITLE: Devtools
+    TITLE: Sourcemaps
     DEV_SOURCEMAPS:
       LABEL: Development source maps
       HELP: >-
@@ -91,3 +84,8 @@ PLUGIN_WEBPACKER:
         SOURCEMAP: source-map
         HIDDEN: hidden-source-map
         NOSOURCES: nosources-source-map
+  ERRORS:
+    MISSING_FILE: doesn't exist, check your theme assets folder and run webpack script in production mode to build assets
+    MISSING_JSON: doesn't exist, run webpack script in production mode to build assets
+    WRONG_EXTENSION: extension must be css or js
+    MISSING_EXTENSION: must have an extension (css or js)

@@ -1,10 +1,14 @@
-# Webpacker Plugin
+# Webpacker Plugin 🚀
 
-**This README.md file should be modified to describe the features, installation, configuration, and general usage of this plugin.**
+The **Webpacker** is a plugin for [Grav CMS](http://github.com/getgrav/grav) that offer a simple way to include the power of webpack inside Grav.
 
-The **Webpacker** Plugin is for [Grav CMS](http://github.com/getgrav/grav). Offer a simple way to include the power of webpack inside Grav.
+<p align="center">
+  <img width="500" height="230" src="https://media.giphy.com/media/U6aCZCeO5dOta/giphy.gif">
+  <br>
+  Optimise your assets to load them incredibly fast!!!
+</p>
 
-## Installation
+## 📦 Installation
 
 Installing the Webpacker plugin can be done in one of two ways. The GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file.
 
@@ -30,32 +34,263 @@ You should now have all the plugin files under
 
 If you use the admin plugin, you can install directly through the admin plugin by browsing the `Plugins` tab and clicking on the `Add` button.
 
-## Configuration
+## 📐 Configuration
+
+### ✅ Default
 
 Before configuring this plugin, you should copy the `user/plugins/webpacker/webpacker.yaml` to `user/config/plugins/webpacker.yaml` and only edit that copy.
 
-Here is the default configuration and an explanation of available options:
+Here is the default configuration:
 
 ```yaml
 enabled: true
+mode: production
+https: false
+ssl_certs: false
+tunnel: false
+open_website: true
+open_url: local
+console_display:
+  error: true
+  warning: true
+overlay_display:
+  error: true
+  warning: true
+overlay_text_color: '#CCCCCC'
+overlay_bg_color: '#1D1D26'
+open_browsersyncui: true
+open_bundleanalyzer: true
+open_jarvis: true
+os_notify: true
+os_notify_sound: true
+browsersync_notify: true
+manifest: true
+vendors: true
+commons: true
+dev_sourcemaps: cheap-module-eval-source-map
+prod_sourcemaps: (none)
+
 ```
 
 Note that if you use the admin plugin, a file with your configuration, and named webpacker.yaml will be saved in the `user/config/plugins/` folder once the configuration is saved in the admin.
 
-## Usage
+### 🚦 Mode option
 
-### SSL certificates
+Running Grav and webpack for development or production.
 
-To use localhost certificate provide by grav webpacker plugin you must run the following command from grav webpacker plugin directory.
+You can choose between 2 mode:
 
- #### Add trusted root certificates commands
+* **Development**: _will serve assets from a development server with hot reload for fast development._
 
-Mac OS X
+* **Production**: _will serve build optimised assets for production._
+
+### 🚸 Development server options
+
+#### HTTPS
+
+Toggle HTTPS on server with HTTP2
+
+#### SSL certificates
+
+Toggle SSL certificates to prevent browser security message (HTTPS settings need to be enabled)
+
+> INFO: To use the SSL certificate provide by this plugin you must add it as root certificates on you local machine. You can do that by running the following commands from the webpacker plugin directory.
+
+###### Mac OS X
 ```bash
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/localhost.crt
 ```
 
-Windows
+###### Windows
 ```bash
 certutil -addstore -f "ROOT" certs/localhost.crt
 ```
+#### Proxy
+
+The php server domain where Grav is running ('e.g. http(s)://domain_name.dev')
+
+#### Tunnel
+
+Create a tunnel server trough a random public url
+
+### 💻 Web browser options
+
+#### Open website
+
+Open website on default web browser after initialization.
+
+#### Website URL
+
+URL to open if option is enabled.
+
+You can choose between 3 mode:
+
+* **local**: _URL can be access on this machine only._
+* **external**: _URL can be access if connected to the same server._
+* **tunnel**: _URL can be access if connected to internet and Tunnel option is enabled._
+
+#### Console
+
+How coding errors, linting errors and webpack runtime errors must be display in the web browser console.
+
+You can choose between 2 mode:
+
+* **display errors**: _display errors in the web browser console._
+* **display warnings**: _display warnings in the web browser console._
+
+![](img/browser_console.jpg)
+
+#### Overlay
+
+How coding errors, linting errors and webpack runtime errors must be display in the web browser overlay.
+
+You can choose between 2 mode:
+
+* **display errors**: _display errors in the web browser overlay._
+* **display warnings**: _display warnings in the web browser overlay._
+
+![](img/overlay.jpg)
+
+#### Overlay text color
+
+The text color for the the web browser overlay
+
+#### Overlay background color
+
+The background color for the the web browser overlay
+
+### 🔨 Tools options
+
+#### BrowserSync UI
+
+Open BrowserSync UI on default web browser after initialization.
+
+![](img/browsersync.jpg)
+
+#### BundleAnalyzer
+
+Open BundleAnalyzer on default web browser after initialization.
+
+![](img/bundleanalyzer.jpg)
+
+#### Jarvis
+
+Open Jarvis Webpack dashboard on default web browser after initialization.
+
+![](img/jarvis.jpg)
+
+### 🔔 Notifications options
+
+#### OS Notification
+
+Toggle OS notification.
+
+![](img/notification_compilation.jpg)
+![](img/notification_success.jpg)
+![](img/notification_error.jpg)
+
+#### OS Notification sound
+
+Toggle OS Notification sound.
+
+#### BrowserSync notification
+
+Toggle BrowserSync status popup.
+
+![](img/browsersync_popup.jpg)
+
+### 🔪 Code Splitting options
+
+#### Manifest
+
+Move webpack runtime code to a separate manifest.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed.
+
+#### Vendors
+
+Move node_modules vendors to a separate vendors.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed
+
+#### Commons
+
+Move modules used in multiple assets to a separate commons.js file in order to support long-term caching. This will avoid hash recreation for other files when only application files are changed
+
+### 📎 Sourcemaps options
+
+Refer to webpack documentation to choose your settings https://webpack.js.org/configuration/devtool/
+
+#### Development source maps
+
+You can choose between 5 mode:
+
+* **(none)**
+* **eval**
+* **eval-source-map**
+* **cheap-eval-source-map**
+* **cheap-module-eval-source-map**
+
+#### Production source maps
+
+You can choose between 4 mode:
+
+* **(none)**
+* **source-map**
+* **hidden-source-map**
+* **nosources-source-map**
+
+## ✨ Usage
+
+Once you've define your configuration in admin or manually in `webpacker.yaml` you can start using webpacker.
+You can use the quick start as follow to have a plug and play configuration.
+
+### Quick Start
+
+#### 1. Boilerplate
+
+Copy the content of webpacker plugin boilerplate folder in to the root folder of your theme.
+
+#### 2. Add entry assets
+
+Add your entry assets to the entryFiles array in your **webpack-config.js** file.
+
+#### 3. Load assets in your theme
+
+Use the custom twig function `{{ webpacker('name_of_your_assets.css|js') }}` to load assets in your theme.
+It's using Grav assets manager under the hood so you can pass the same options (loading, groups, defer, etc...)
+
+##### exemple:
+
+ ```twig
+{% block stylesheets %}
+      {{ webpacker('inline.css', {'loading':'inline'}) }}
+      {{ webpacker('app.css') }}
+{% endblock %}
+{{ assets.css }}
+
+{% block javascripts %}
+     {{ webpacker('app.js') }}
+{% endblock %}
+{{ assets.js }}
+```
+
+#### 3. Lauch webpacker
+
+You first need to install the dependencies with the following command from your theme folder.
+
+```bash
+run yarn run setup
+```
+
+Once dependencies or installed you can lauch webpacker with the following command from your theme folder.
+
+```bash
+run yarn run webpack
+```
+
+It will run in the mode you choose in admin. (you can override this by using the `--mode` flag with the option `developement` or `production`)
+
+* **development mode**: _The development mode._
+
+![](img/terminal_mode_dev.jpg)
+
+* **production mode**: _The production mode._
+
+![](img/terminal_mode_prod.jpg)
