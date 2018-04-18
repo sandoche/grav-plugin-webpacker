@@ -1,3 +1,11 @@
+# v1.1.8
+##  04/18/2018
+
+1. [](#improved)
+    * update npm packages
+1. [](#bugfix)
+    * fix node notifier
+
 # v1.1.7
 ##  04/17/2018
 
