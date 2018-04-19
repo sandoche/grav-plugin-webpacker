@@ -8,17 +8,9 @@ const cli = require('yargs').argv
 // HELPERS
 // ––––––––––––––––––––––
 
-const parseYaml = (userPath, yamlFile) => {
-  const configPath = `${userPath}/config`
-  const yamlPath = path.resolve(configPath, yamlFile)
-  const yamlContents = fs.readFileSync(yamlPath, 'utf8')
+const parseYaml = yamlPath => yaml.load(fs.readFileSync(yamlPath, 'utf8'))
 
-  return yaml.load(yamlContents)
-}
-
-const uriEncode = object => {
-  return encodeURIComponent(JSON.stringify(object))
-}
+const uriEncode = object => encodeURIComponent(JSON.stringify(object))
 
 const prependPath = (destination, pathsArray) => {
   const newPaths = []
@@ -40,10 +32,10 @@ class GravConfig {
   // GravConfig constructor
   constructor (entryFiles, userPath) {
     // Grav Webpacker plugin config
-    const plugin = parseYaml(userPath, 'plugins/webpacker.yaml')
+    const plugin = parseYaml(path.resolve(`${userPath}/config/plugins/webpacker.yaml`))
 
     // Grav system config
-    const system = parseYaml(userPath, 'system.yaml')
+    const system = parseYaml(path.resolve(`${userPath}/config/system.yaml`))
 
     // Localhost certificates
     const sslCerts = {
@@ -53,14 +45,21 @@ class GravConfig {
 
     // Active theme
     const activeTheme = system.pages.theme
+    const themePath = path.resolve(userPath, `themes/${activeTheme}`)
+
+    // Theme config
+    const theme = parseYaml(path.resolve(`${themePath}/blueprints.yaml`))
+    const _themeName = theme.name
+    const _themeVersion = theme.version
+    const _themeDescription = theme.description
 
     // Path
-    const _outputPath = path.resolve(userPath, `themes/${activeTheme}/assets`)
+    const _outputPath = path.resolve(themePath, 'assets')
     const _publicPath = `/user/themes/${activeTheme}/assets/`
 
     // Assets entry
     const _entry = (() => {
-      const sourcePath = path.resolve(userPath, `themes/${activeTheme}/src`)
+      const sourcePath = path.resolve(themePath, 'src')
       const entriesName = []
       const entriesPath = []
       const entries = prependPath(sourcePath, entryFiles)
@@ -153,6 +152,9 @@ class GravConfig {
     // Return Config array
     return {
       appName: 'webpacker',
+      themeName: _themeName,
+      themeVersion: _themeVersion,
+      themeDescription: _themeDescription,
       entry: _entry,
       mode: webpackerMode,
       dev: _dev,

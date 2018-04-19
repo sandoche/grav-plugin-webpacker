@@ -55,6 +55,7 @@ class WebpackAssets
     // Files infos
     $pathInfo = pathinfo($asset);
     $fileName = $pathInfo['filename'];
+    $baseName = $pathInfo['basename'];
 
     // Error title
     $errorTitle = 'Webpacker Plugin: ';
@@ -72,7 +73,7 @@ class WebpackAssets
         // Check if mode is development
         if ($mode === 'development') {
           // Asset path
-          $assetRelPath = '/assets/js/' . $fileName . '.js';
+          $assetRelPath = "/assets/js/{$fileName}.js";
           $assetAbsPath = $assetRelPath;
 
           // Overwrite settings for development
@@ -86,7 +87,7 @@ class WebpackAssets
 
         // Check if mode is production
         } elseif ($mode === 'production') {
-          $webpackAssets = $locator->findResource('theme://assets/' . $webpackerJson, true);
+          $webpackAssets = $locator->findResource("theme://assets/{$webpackerJson}", true);
 
           // Check if wepack-assets.json exist
           if (file_exists($webpackAssets)) {
@@ -94,14 +95,14 @@ class WebpackAssets
             $assetsArray = json_decode(file_get_contents($webpackAssets), true);
 
             // Check if file is vendors or commons
-            if ($fileName === 'vendors' || $fileName === 'commons') {
+            if ($baseName === 'vendors.js' || $baseName === 'commons.js') {
               // Stop here if file is not in wepack-assets.json index
-              if (!array_key_exists($fileName, $assetsArray)) return;
+              if (!array_key_exists($baseName, $assetsArray)) return;
             }
 
             // Asset path
-            $assetRelPath = $assetsArray[$fileName];
-            $assetAbsPath = GRAV_ROOT . $assetRelPath[$fileExt];
+            $assetRelPath = $assetsArray[$baseName];
+            $assetAbsPath = GRAV_ROOT . $assetRelPath;
 
             // Check if the file exist
             if (file_exists($assetAbsPath)) {
@@ -109,12 +110,12 @@ class WebpackAssets
               // Check if file extension is CSS
               if ($fileExt === 'css') {
                 // Add CSS
-                $assets->addCss($assetRelPath['css'], $priority, $pipeline, $group, $loading);
+                $assets->addCss($assetRelPath, $priority, $pipeline, $group, $loading);
 
               // Check if file extension is JS
               } elseif ($fileExt === 'js') {
                 // Add JS
-                $assets->addJs($assetRelPath['js'], $priority, $pipeline, $loading, $group);
+                $assets->addJs($assetRelPath, $priority, $pipeline, $loading, $group);
               }
 
             // Trow missing file error
