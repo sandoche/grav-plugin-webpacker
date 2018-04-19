@@ -72,12 +72,17 @@ module.exports = () => {
         output: 'webpacker.json',
         publicPath: true,
         transform (assets, manifest) {
+          const date = new Date()
+            .toISOString()
+            .replace(/T/, ' ')
+            .replace(/\..+/, '')
+
           // Theme infos
           const { key, value } = manifest.hooks.customize.call({
-            key: '__________THEME__________',
+            key: '___BUILD_INFORMATIONS___',
             value: {
-              name: GravConfig.themeName,
-              version: GravConfig.themeVersion,
+              date: date,
+              theme: `${GravConfig.themeName} - v${GravConfig.themeVersion}`,
               description: GravConfig.themeDescription
             }
           })
