@@ -11,7 +11,7 @@
   "scripts": {
     "setup": "yarn",
     "reset": "rm -rf node_modules yarn.lock && yarn run setup",
-    "update": "ncu -u -a && yarn run setup"
+    "update": "ncu -u -a"
   },
   "devDependencies": {
     "eslint": "4.19.1",
