@@ -71,6 +71,19 @@ module.exports = () => {
       new WebpackAssetsManifest({
         output: 'webpacker.json',
         publicPath: true,
+        transform (assets, manifest) {
+          // Theme infos
+          const { key, value } = manifest.hooks.customize.call({
+            key: '__________THEME__________',
+            value: {
+              name: GravConfig.themeName,
+              version: GravConfig.themeVersion,
+              description: GravConfig.themeDescription
+            }
+          })
+
+          assets[key] = value
+        },
         customize (entry, original, manifest, asset) {
           // Prevent adding sourcemap to the manifest
           if (entry.key.toLowerCase().endsWith('.map')) {
