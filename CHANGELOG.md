@@ -1,3 +1,13 @@
+# v1.1.9
+##  04/19/2018
+
+1. [](#bugfix)
+    * BREAKING CHANGE: replace assets-webpack-plugin (need have to rebuild your asset)
+1. [](#improved)
+    * update npm packages
+1. [](#new)
+    * add informations in JSON manifest to keep a trace of lasted build (theme name/description/version and build date)
+
 # v1.1.8
 ##  04/18/2018
 
