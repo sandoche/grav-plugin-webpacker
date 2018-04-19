@@ -1,3 +1,9 @@
+# v1.2.0
+##  04/19/2018
+
+1. [](#bugfix)
+    * fix css build assets naming
+
 # v1.1.9
 ##  04/19/2018
 

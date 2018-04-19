@@ -55,8 +55,7 @@ module.exports = () => {
 
       // Plugin to extract S|A|CSS code from JS
       new MiniCssExtractPlugin({
-        filename: 'css/[name].[contenthash].css',
-        chunkFilename: 'css/[id].[contenthash].css'
+        filename: 'css/[name].[contenthash].css'
       }),
 
       // Cleanup dist folder before saving new build
