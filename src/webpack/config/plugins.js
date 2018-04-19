@@ -71,22 +71,17 @@ module.exports = () => {
         output: 'webpacker.json',
         publicPath: true,
         transform (assets, manifest) {
-          const date = new Date()
-            .toISOString()
-            .replace(/T/, ' ')
-            .replace(/\..+/, '')
-
           // Theme infos
-          const { key, value } = manifest.hooks.customize.call({
-            key: '___BUILD_INFORMATIONS___',
-            value: {
-              date: date,
+          const buildInfos = {
+            BUILD_INFORMATIONS: {
+              date: new Date(Date.now()).toLocaleString(),
               theme: `${GravConfig.themeName} - v${GravConfig.themeVersion}`,
               description: GravConfig.themeDescription
-            }
-          })
+            },
+            anotherProperty: 'some value'
+          }
 
-          assets[key] = value
+          return Object.assign(buildInfos, assets)
         },
         customize (entry, original, manifest, asset) {
           // Prevent adding sourcemap to the manifest
