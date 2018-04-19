@@ -16,7 +16,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const JarvisPlugin = require('webpack-jarvis')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const AssetsPlugin = require('assets-webpack-plugin')
+const WebpackAssetsManifest = require('webpack-assets-manifest')
 
 // PLUGINS CONFIG
 // ––––––––––––––––––––––
@@ -68,9 +68,33 @@ module.exports = () => {
       }),
 
       // Ganerate webpacker.json file that contain path reference to all builded assets
-      new AssetsPlugin({
-        filename: 'webpacker.json',
-        path: GravConfig.outputPath
+      new WebpackAssetsManifest({
+        output: 'webpacker.json',
+        publicPath: true,
+        transform (assets, manifest) {
+          const date = new Date()
+            .toISOString()
+            .replace(/T/, ' ')
+            .replace(/\..+/, '')
+
+          // Theme infos
+          const { key, value } = manifest.hooks.customize.call({
+            key: '___BUILD_INFORMATIONS___',
+            value: {
+              date: date,
+              theme: `${GravConfig.themeName} - v${GravConfig.themeVersion}`,
+              description: GravConfig.themeDescription
+            }
+          })
+
+          assets[key] = value
+        },
+        customize (entry, original, manifest, asset) {
+          // Prevent adding sourcemap to the manifest
+          if (entry.key.toLowerCase().endsWith('.map')) {
+            return false
+          }
+        }
       })
     )
   }
