@@ -10,7 +10,8 @@
   "main": "src/index.js",
   "scripts": {
     "setup": "yarn",
-    "reset": "rm -rf node_modules yarn.lock && yarn run setup",
+    "clean": "rm -rf node_modules yarn.lock",
+    "reset": "yarn clean && yarn^ setup",
     "update": "ncu -u -a"
   },
   "devDependencies": {
@@ -40,12 +41,12 @@
     "eslint-plugin-import": "2.11.0",
     "eslint-plugin-node": "6.0.1",
     "eslint-plugin-promise": "3.7.0",
-    "eslint-plugin-standard": "3.0.1",
+    "eslint-plugin-standard": "3.1.0",
     "file-loader": "1.1.11",
     "friendly-errors-webpack-plugin": "1.7.0",
     "image-webpack-loader": "4.2.0",
     "js-yaml": "3.11.0",
-    "lodash": "4.17.5",
+    "lodash": "4.17.10",
     "mini-css-extract-plugin": "0.4.0",
     "node-notifier": "5.2.1",
     "node-sass": "4.8.3",
