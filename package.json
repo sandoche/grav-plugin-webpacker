@@ -1,6 +1,6 @@
 {
   "name": "grav-plugin-webpacker",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Offer a simple way to include the power of webpack inside Grav",
   "author": "jimblue",
   "license": "MIT",
@@ -11,7 +11,7 @@
   "scripts": {
     "setup": "yarn",
     "clean": "rm -rf node_modules yarn.lock",
-    "reset": "yarn clean && yarn^ setup",
+    "reset": "yarn clean && yarn setup",
     "update": "ncu -u -a"
   },
   "devDependencies": {
