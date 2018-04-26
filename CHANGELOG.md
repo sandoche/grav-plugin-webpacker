@@ -1,3 +1,9 @@
+# v1.2.2
+##  04/26/2018
+
+1. [](#improved)
+    * update npm packages (ready for node.js v10)
+
 # v1.2.1
 ##  04/19/2018
 
