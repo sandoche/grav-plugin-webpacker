@@ -1,3 +1,11 @@
+# v1.2.3
+##  04/27/2018
+
+1. [](#improved)
+    * optimize webpack optimization settings
+    * update npm packages
+    * cleanup code
+
 # v1.2.2
 ##  04/26/2018
 
