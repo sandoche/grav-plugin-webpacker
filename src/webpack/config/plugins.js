@@ -47,9 +47,6 @@ module.exports = () => {
         clear: true
       }),
 
-      // Support for webpack 3 scope hoisting
-      new webpack.optimize.ModuleConcatenationPlugin(),
-
       // Will cause hashes to be based on the relative path of the module, generating a four character string as the module id
       new webpack.HashedModuleIdsPlugin(),
 
