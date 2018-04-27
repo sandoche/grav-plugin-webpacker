@@ -21,19 +21,6 @@ module.exports = () => {
     }
   }
 
-  // Code splitting entries common code
-  const commonsChunk = {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: 'commons',
-          chunks: 'initial',
-          minChunks: 2
-        }
-      }
-    }
-  }
-
   // Code splitting node_modules vendors
   const vendorsChunk = {
     splitChunks: {
@@ -41,7 +28,23 @@ module.exports = () => {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all'
+          chunks: 'all',
+          priority: 1
+        }
+      }
+    }
+  }
+
+  // Code splitting entries common code
+  const commonsChunk = {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          chunks: 'initial',
+          minChunks: 2,
+          priority: 0,
+          reuseExistingChunk: true
         }
       }
     }
@@ -69,8 +72,8 @@ module.exports = () => {
   }
 
   if (GravConfig.manifest) optimization = { ...optimization, ...runtimeChunk }
-  if (GravConfig.commons) optimization = deepmerge(optimization, commonsChunk)
   if (GravConfig.vendors) optimization = deepmerge(optimization, vendorsChunk)
+  if (GravConfig.commons) optimization = deepmerge(optimization, commonsChunk)
   if (GravConfig.prod) optimization = { ...optimization, ...UglifyJsMinimizer }
 
   return optimization
