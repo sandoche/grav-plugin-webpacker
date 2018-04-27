@@ -77,8 +77,7 @@ module.exports = () => {
               date: new Date(Date.now()).toLocaleString(),
               theme: `${GravConfig.themeName} - v${GravConfig.themeVersion}`,
               description: GravConfig.themeDescription
-            },
-            anotherProperty: 'some value'
+            }
           }
 
           return Object.assign(buildInfos, assets)
