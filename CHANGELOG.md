@@ -1,3 +1,10 @@
+# v1.2.4
+##  04/30/2018
+
+1. [](#improved)
+    * better progress bar in console
+    * update npm packages
+
 # v1.2.3
 ##  04/27/2018
 

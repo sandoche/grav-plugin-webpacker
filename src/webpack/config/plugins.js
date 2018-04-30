@@ -5,7 +5,6 @@ const webpack = require('webpack')
 
 // Tools libraries
 const path = require('path')
-const chalk = require('chalk')
 
 // Plugins libraries
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -14,7 +13,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-build-notifier')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const JarvisPlugin = require('webpack-jarvis')
-const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const WebpackBar = require('webpackbar')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const WebpackAssetsManifest = require('webpack-assets-manifest')
 
@@ -39,14 +38,6 @@ module.exports = () => {
 
   if (GravConfig.prod) {
     plugins.push(
-      // Terminal Progress bar
-      new ProgressBarPlugin({
-        format: `  ${chalk.green.bold('BUILD')} ${chalk.yellow('█:bar█')} ${chalk.green.bold(':percent')} ${chalk.bold('(:elapsed seconds)')}`,
-        complete: '█',
-        incomplete: '░',
-        clear: true
-      }),
-
       // Will cause hashes to be based on the relative path of the module, generating a four character string as the module id
       new webpack.HashedModuleIdsPlugin(),
 
@@ -91,6 +82,9 @@ module.exports = () => {
 
   // Common Plugins
   // ––––––––––––––––––––––
+
+  // Console progress bar
+  plugins.push(new WebpackBar())
 
   // Better error feedback in the console
   plugins.push(new FriendlyErrorsWebpackPlugin())
