@@ -84,7 +84,12 @@ module.exports = () => {
   // ––––––––––––––––––––––
 
   // Console progress bar
-  plugins.push(new WebpackBar())
+  plugins.push(
+    new WebpackBar({
+      compiledIn: false,
+      name: GravConfig.appName
+    })
+  )
 
   // Better error feedback in the console
   plugins.push(new FriendlyErrorsWebpackPlugin())
