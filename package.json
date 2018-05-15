@@ -20,12 +20,12 @@
     "npm-check-updates": "2.14.2"
   },
   "dependencies": {
-    "@babel/core": "7.0.0-beta.46",
-    "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.46",
-    "@babel/plugin-transform-spread": "7.0.0-beta.46",
-    "@babel/polyfill": "7.0.0-beta.46",
-    "@babel/preset-env": "7.0.0-beta.46",
-    "@babel/preset-stage-0": "7.0.0-beta.46",
+    "@babel/core": "7.0.0-beta.47",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.47",
+    "@babel/plugin-transform-spread": "7.0.0-beta.47",
+    "@babel/polyfill": "7.0.0-beta.47",
+    "@babel/preset-env": "7.0.0-beta.47",
+    "@babel/preset-stage-0": "7.0.0-beta.47",
     "babel-eslint": "8.2.3",
     "babel-loader": "8.0.0-beta.0",
     "browser-sync": "2.24",
