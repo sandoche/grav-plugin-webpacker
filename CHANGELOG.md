@@ -1,3 +1,13 @@
+# v1.2.8
+##  05/24/2018
+
+1. [](#improved)
+    * update npm packages
+    * update README
+
+1. [](#bugfix)
+    * replace obsolete localhost certifcates with new ones valide for 10 years
+
 # v1.2.7
 ##  05/17/2018
 
