@@ -98,13 +98,14 @@ Toggle SSL certificates to prevent browser security message (HTTPS settings need
 
 ###### Mac OS X
 ```bash
-sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain certs/localhost.crt
+sudo security add-trusted-cert -p ssl -d -r trustRoot -k /Library/Keychains/System.keychain certs/localhost.crt
 ```
 
 ###### Windows
 ```bash
 certutil -addstore -f "ROOT" certs/localhost.crt
 ```
+
 #### Proxy
 
 The php server domain where Grav is running ('e.g. http(s)://domain_name.dev')
