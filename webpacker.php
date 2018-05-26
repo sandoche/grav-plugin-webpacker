@@ -113,7 +113,7 @@ class WebpackerPlugin extends Plugin
 
       // Define the new frontend base url for development mode
       $admin_class_variables = [
-        'base_url_relative_frontend' => "{$protocol}://localhost:3000",
+        'base_url_relative_frontend' => "{$protocol}://localhost:3001",
       ];
 
       // Merge Twig variable to overide base_url_relative_frontend with new one
