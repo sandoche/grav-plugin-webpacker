@@ -1,3 +1,9 @@
+# v1.3.6
+##  06/05/2018
+
+1. [](#improved)
+    * improve build hash based on each chunk for better long term caching
+
 # v1.3.5
 ##  06/05/2018
 
