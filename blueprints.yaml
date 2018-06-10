@@ -1,5 +1,5 @@
 name: Webpacker
-version: 1.3.6
+version: 1.3.7
 description: Offer a simple way to include the power of webpack inside Grav
 icon: refresh
 keywords: 'grav, plugin, webpack, assets, workflow'
