@@ -1,3 +1,11 @@
+# v1.3.8
+##  06/13/2018
+
+1. [](#improved)
+    * disable transformation of ES6 module syntax to another module type
+    * move dependencies to boilerplate
+    * update npm packages
+
 # v1.3.7
 ##  06/10/2018
 
