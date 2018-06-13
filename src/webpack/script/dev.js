@@ -79,6 +79,7 @@ const devCompiler = webpack(WebpackConfig)
 // BrowserSync server options
 const browserSyncServerOptions = {
   // Main options
+  browser: GravConfig.devBrowser,
   port: GravConfig.serverPort,
   proxy: GravConfig.proxy,
   httpModule: GravConfig.httpModule,
