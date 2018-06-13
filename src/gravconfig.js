@@ -30,7 +30,7 @@ const prependPath = (destination, pathsArray) => {
 
 class GravConfig {
   // GravConfig constructor
-  constructor (entryFiles, userPath) {
+  constructor(entryFiles, userPath) {
     // Grav Webpacker plugin config
     const plugin = parseYaml(path.resolve(`${userPath}/config/plugins/webpacker.yaml`))
 
@@ -124,6 +124,7 @@ class GravConfig {
     })
 
     // Web browser
+    const _devBrowser = plugin.dev_browser === 'os_default' ? null : plugin.dev_browser
     const _openWebsite = plugin.open_website
     const _openUrl = plugin.open_url
 
@@ -169,6 +170,7 @@ class GravConfig {
       tunnel: _tunnel,
       outputPath: _outputPath,
       publicPath: _publicPath,
+      devBrowser: _devBrowser,
       openWebsite: _openWebsite,
       openUrl: _openUrl,
       consoleDisplayError: _consoleDisplayError,

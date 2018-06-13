@@ -17,6 +17,10 @@ PLUGIN_WEBPACKER:
     PROXY_HELP: The php server domain where Grav is running
     TUNNEL: Tunnel
     TUNNEL_HELP: Create a tunnel server trough a random public url
+    DEV_BROWSER:
+      LABEL: Default web browser
+      HELP: The web browser to use when using webpacker in dev mode
+      OS_DEFAULT: os default
   WEBBROWSER:
     TITLE: Web browser
     OPEN: Open website

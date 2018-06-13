@@ -83,6 +83,19 @@ form:
             '0': PLUGIN_ADMIN.DISABLED
           validate:
             type: bool
+        dev_browser:
+          type: select
+          size: medium
+          label: PLUGIN_WEBPACKER.SERVER.DEV_BROWSER.LABEL
+          help: PLUGIN_WEBPACKER.SERVER.DEV_BROWSER.HELP
+          default: os_default
+          options:
+              os_default: PLUGIN_WEBPACKER.SERVER.DEV_BROWSER.OS_DEFAULT
+              'google chrome': google chrome
+              safari: safari
+              firefox: firefox
+              opera: opera
+              ie: ie
     webbrowser_section:
       type: section
       title: PLUGIN_WEBPACKER.WEBBROWSER.TITLE
