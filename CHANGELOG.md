@@ -1,3 +1,11 @@
+# v1.3.9
+##  06/13/2018
+
+1. [](#new)
+    * add an option to choose dev browser (to override default os browser if necessary)
+1. [](#improved)
+    * better browserlistrc boilerplate
+
 # v1.3.8
 ##  06/13/2018
 
